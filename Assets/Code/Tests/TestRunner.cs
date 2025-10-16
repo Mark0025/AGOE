@@ -21,6 +21,8 @@ namespace AGOE
             {
                 // Run all test suites
                 CommandBusTests.RunAllTests();
+                Console.WriteLine();
+                SelectionSystemTests.RunAllTests();
 
                 Console.WriteLine("\n==================================");
                 Console.WriteLine("✓ ALL TESTS PASSED");
