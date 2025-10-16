@@ -7,6 +7,10 @@
 [Ll]ogs/
 [Uu]ser[Ss]ettings/
 
+# .NET build output
+bin/
+obj/
+
 # Unity3D generated meta files
 *.pidb.meta
 *.pdb.meta

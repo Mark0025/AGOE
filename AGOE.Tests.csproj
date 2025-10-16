@@ -8,10 +8,6 @@
     <ImplicitUsings>disable</ImplicitUsings>
   </PropertyGroup>
 
-  <ItemGroup>
-    <!-- Include all C# files from Assets/Code -->
-    <Compile Include="Assets/Code/**/*.cs" />
-  </ItemGroup>
 
   <PropertyGroup>
     <StartupObject>AGOE.TestRunner</StartupObject>
