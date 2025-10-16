@@ -28,6 +28,7 @@ crashlytics-build.properties
 ExportedObj/
 .consulo/
 *.csproj
+!AGOE.Tests.csproj
 *.unityproj
 *.sln
 *.suo
