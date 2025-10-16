@@ -1,0 +1,57 @@
+name: Run Tests
+
+on:
+  push:
+    branches: [main, develop]
+  pull_request:
+    branches: [main]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '8.0.x'
+
+      - name: Restore dependencies
+        run: dotnet restore AGOE.Tests.csproj
+
+      - name: Build project
+        run: dotnet build AGOE.Tests.csproj --no-restore
+
+      - name: Run tests
+        run: dotnet run --project AGOE.Tests.csproj --no-build
+
+      - name: Test status
+        if: failure()
+        run: echo "Tests failed! Check the logs above."
+
+  lint:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '8.0.x'
+
+      - name: Install dotnet format
+        run: dotnet tool install -g dotnet-format
+
+      - name: Check formatting
+        run: dotnet format AGOE.Tests.csproj --verify-no-changes
+
+      - name: Formatting status
+        if: failure()
+        run: |
+          echo "Code formatting issues detected!"
+          echo "Run 'dotnet format AGOE.Tests.csproj' locally to fix."
