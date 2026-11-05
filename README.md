@@ -6,8 +6,6 @@
 - **Status:** inactive since 2025-10
 - **Source:** agent research 2026-11-04
 
-A ground-up RTS game implementation in C#/Unity, designed as a learning project to master C# development through building a real-time strategy game.
-
 ## Project Status
 
 **Planning Phase** - Detailed architecture and sprint planning complete. Ready to begin Sprint 1 implementation.
